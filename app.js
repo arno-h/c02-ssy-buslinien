@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const index = require('./routes/index');
+// const part_tickets = require('./routes/part-tickets');
 
 
 // Generic application setup
@@ -13,6 +14,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes
 app.use('/', index);
+
+// for (let linie of ['Gelbe-Linie', 'Blaue-Linie', 'Rote-Linie', 'Orange-Linie']) {
+//   app.use('/linientickets/'+linie, part_tickets(linie));
+// }
 
 
 // catch 404 and forward to error handler
