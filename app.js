@@ -1,36 +1,18 @@
 const express = require('express');
 const logger = require('morgan');
-const bodyParser = require('body-parser');
-const app = express();
-
-const index = require('./routes/index');
-// const part_tickets = require('./routes/part-tickets');
-
 
 // Generic application setup
+const app = express();
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+
+// Load routes into variables
+const index = require('./routes/index');
 
 // Routes
 app.use('/', index);
 
-// for (let linie of ['Gelbe-Linie', 'Blaue-Linie', 'Rote-Linie', 'Orange-Linie']) {
-//   app.use('/linientickets/'+linie, part_tickets(linie));
-// }
-
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  res.status(404);
-  res.send('Not found');
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  console.log(err.stack);
-  res.send(err.stack);
-});
 
 module.exports = app;

@@ -7,10 +7,10 @@
     "monitor": "nodemon $NODE_DEBUG_OPTION ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "axios": "^0.19.2",
     "debug": "~2.6.9",
     "express": "^4.17.1",
-    "lokijs": "^1.5.8",
+    "lokijs": "^1.5.9",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
