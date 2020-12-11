@@ -32,4 +32,13 @@ partRot.insert(new Ticket('Rote-Linie', 'Anna-Platz', 'Berta-Gasse', 1.5, 2.0));
 partOrange.insert(new Ticket('Orange-Linie', 'Emil-Allee', 'Frieda-Gasse', 5.5, 4.90));
 
 
-module.exports = db;
+function getPartitionCollection(linie) {
+    return db.getCollection('tickets-' + linie);
+}
+
+module.exports = {
+    ticketColl: tickets,
+    kmpreisColl: kmpreis,
+    haltestellenColl: haltestellen,
+    getPartitionColl: getPartitionCollection
+};
